@@ -1,0 +1,21 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description. Line
+# up the first '|' above the ':' following the base package name, and the '|'
+# on the right side marks the last column you can put a character in. You must
+# make exactly 11 lines for the formatting to be correct. It's also
+# customary to leave one space after the ':'.
+
+            |-----handy-ruler------------------------------------------------------|
+kernel-zen: kernel-zen (a general Zen Kernel for Slackware - using generic config)
+kernel-zen:
+kernel-zen: Zen Kernel is a result of a collaborative effort of kernel hackers to
+kernel-zen: the best Linux Kernel possible for  everyday systems.
+kernel-zen: This is a Linux kernel with built-in support for most disk
+kernel-zen: controllers. To use filesystems, or to load support for a SCSI or
+kernel-zen: other controller, then you'll need to load one or more kernel
+kernel-zen: modules using an initial ramdisk, or initrd. For more information
+kernel-zen: about creating an initrd, see the README.initrd file in the /boot
+kernel-zen: directory.
+kernel-zen: For more information about Zen Kernel, see GitHub project page:
+kernel-zen: https://github.com/zen-kernel/zen-kernel
+kernel-zen:
