@@ -64,17 +64,17 @@ if [ -z "${KERNEL_CONFIG}" ]; then # figure out the best matching .config
       LOCALVERSION="-smp"
     fi
   fi
-  if [ -r "$CWD/kernel-configs/config-generic${LOCALVERSION}-${VERSION}$LOCALVERSION${CONFIG_SUFFIX}" ]; then
+  if [ -r "$CWD/kernel-configs/config-zen${LOCALVERSION}-${VERSION}$LOCALVERSION${CONFIG_SUFFIX}" ]; then
     # Exact match!
-    KERNEL_CONFIG="config-generic${LOCALVERSION}-${VERSION}${LOCALVERSION}${CONFIG_SUFFIX}"
+    KERNEL_CONFIG="config-zen${LOCALVERSION}-${VERSION}${LOCALVERSION}${CONFIG_SUFFIX}"
   else # no exact match, so find newest with the same name:
-    FIND_MATCH="$(/bin/ls -t $CWD/kernel-configs/config-generic${LOCALVERSION}-*${LOCALVERSION}${CONFIG_SUFFIX} 2> /dev/null | head -n 1)"
+    FIND_MATCH="$(/bin/ls -t $CWD/kernel-configs/config-zen${LOCALVERSION}-*${LOCALVERSION}${CONFIG_SUFFIX} 2> /dev/null | head -n 1)"
     if [ -r "${FIND_MATCH}" ]; then
       KERNEL_CONFIG="$(basename ${FIND_MATCH})"
       unset FIND_MATCH
     else
       echo "Error: no matching .config file could be found for this kernel. Tried:"
-      echo "  $CWD/kernel-configs/config-generic${LOCALVERSION}-${VERSION}${LOCALVERSION}${CONFIG_SUFFIX} (not found)"
+      echo "  $CWD/kernel-configs/config-zen${LOCALVERSION}-${VERSION}${LOCALVERSION}${CONFIG_SUFFIX} (not found)"
       exit 1
     fi
   fi
@@ -142,9 +142,9 @@ echo "Untarring $CWD/zen-kernel-${VERSION}-zen1.tar.?z in $PKG/usr/src..."
 ( cd $PKG/usr/src/zen-kernel-${VERSION}${LOCALVERSION}-zen1
   echo "Making oldconfig..."
   make oldconfig
-  if [ ! -r $CWD/kernel-configs/config-generic${LOCALVERSION}-${VERSION}${LOCALVERSION}${CONFIG_SUFFIX} ]; then
-    echo "Saving new .config as: $CWD/kernel-configs/config-generic${LOCALVERSION}-${VERSION}${LOCALVERSION}${CONFIG_SUFFIX}"
-    cp -a .config $CWD/kernel-configs/config-generic${LOCALVERSION}-${VERSION}${LOCALVERSION}${CONFIG_SUFFIX}
+  if [ ! -r $CWD/kernel-configs/config-zen${LOCALVERSION}-${VERSION}${LOCALVERSION}${CONFIG_SUFFIX} ]; then
+    echo "Saving new .config as: $CWD/kernel-configs/config-zen${LOCALVERSION}-${VERSION}${LOCALVERSION}${CONFIG_SUFFIX}"
+    cp -a .config $CWD/kernel-configs/config-zen${LOCALVERSION}-${VERSION}${LOCALVERSION}${CONFIG_SUFFIX}
   fi
   echo "Building kernel..."
   make ${NUMJOBS} bzImage || make bzImage || exit 1
